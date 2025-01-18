@@ -1,4 +1,5 @@
 import { client } from "@/sanity/lib/client"
+import Image from "next/image"
 
 export default async function FetchProducts(){
   const query = `
@@ -15,9 +16,9 @@ export default async function FetchProducts(){
  return (
   <div className="grid grid-cols-3 gap-[40px]">
     {
-      FetchData.map((Data :any) => (
+      FetchData.map((Data : any) => (
         <div key={Data.id} className="w-[550px] h-[730px] hover:shadow-slate-400 hover:shadow-lg shadow-md shadow-slate-300 rounded-lg">
-            <img src={Data.productImage} alt="image" width={'550px'} height={'480px'} />
+            <Image src={Data.productImage} alt="image" className="w-[550px] h-[480px]"/>
               <div className="pl-[20px] pt-[20px] font-sans">
                 <h1 className="text-[22px] font-semibold">{Data.productName}</h1>
                 <p className="text-[18px] text-gray-400">{Data.category}</p>
